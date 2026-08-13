@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riprese Aeree con Drone | Emozioni dall'Alto</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        header { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1527977966376-1c8408f9f108?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; color: white; text-align: center; padding: 120px 20px; }
+        .btn { display: inline-block; background-color: var(--primary); color: white; padding: 12px 30px; border-radius: 5px; text-decoration: none; font-weight: bold; margin: 10px; cursor: pointer; border: none; transition: 0.3s; }
+        .btn:hover { background-color: #1d4ed8; }
+        section { padding: 80px 20px; max-width: 1100px; margin: 0 auto; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .drone-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 15px rgba(0,0,0,0.1); margin-bottom: 40px; }
+        .specs { list-style: none; margin-top: 20px; }
+        .specs li { margin-bottom: 12px; padding-left: 25px; position: relative; }
+        .specs li::before { content: "✔"; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+        
+        /* Stile per i Video YouTube Responsive */
+        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background: #000; margin-top: 25px; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+        /* Stile Modulo Preventivo e Tabelle */
+        .form-container { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 15px rgba(0,0,0,0.05); max-width: 700px; margin: 0 auto; text-align: left; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--dark); }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 5px; font-size: 1rem; }
+        .form-group textarea { resize: vertical; height: 120px; }
+
+        footer { background-color: var(--dark); color: white; text-align: center; padding: 40px 20px; }
+        #sezione-droni { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="home-page">
+        <header>
+            <h1>Cattura il Mondo da una Prospettiva Unica</h1>
+            <div style="background: rgba(37, 99, 235, 0.8); display: inline-block; padding: 10px 20px; border-radius: 50px; margin: 15px 0; font-weight: bold; letter-spacing: 1px;">
+                📍 Operativi a Parabiago, Milano e zone limitrofe
+            </div>
+            <p>Dalle riprese cinematiche stabili alle inquadrature adrenaliniche in prima persona: portiamo il tuo progetto a nuove altezze.</p>
+            <a href="#preventivo" class="btn">Richiedi un Preventivo</a>
+            <button onclick="mostraDroni()" class="btn" style="background-color: #0f172a;">Scopri la Nostra Flotta</button>
+        </header>
+
+        <!-- Sezione Esplicativa -->
+        <section style="background-color: #ffffff; padding: 80px 20px;">
+            <h2 style="text-align: center; margin-bottom: 30px;">Perché le riprese aeree non sono più un lusso, ma una necessità</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <p style="margin-bottom: 20px;">Nell'era della comunicazione visiva rapida, catturare l'attenzione in pochi secondi è la sfida principale per ogni professionista o azienda. Le riprese aeree non sono solo un elemento estetico, ma uno strumento strategico: offrono una visione d'insieme impossibile da ottenere a terra, trasmettendo immediatamente autorità, ampiezza e prestigio. Che si tratti di un immobile, di un evento sportivo o di una promozione aziendale, la prospettiva del drone comunica "professionalità" al primo sguardo.</p>
+                <p>Investire in riprese aeree significa elevare il valore percepito del proprio lavoro. È una scelta necessaria per chiunque voglia raccontare una storia in modo immersivo: il drone non si limita a inquadrare un soggetto, ma ne narra il contesto, le dimensioni e l'atmosfera, trasformando un semplice spettatore in un potenziale cliente realmente colpito dall'impatto visivo della tua visione.</p>
+            </div>
+        </section>
+
+        <section id="servizi">
+            <h2 style="text-align:center; margin-bottom: 50px;">Soluzioni Professionali per Ogni Esigenza</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>🎬 Riprese Cinematiche & Immobiliari (DJI Mini 2)</h3>
+                    <p>Ideale per riprese fluide e stabili dove la qualità dell'immagine è la priorità assoluta.</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Vendita Immobiliare (Ville, terreni, complessi)</li>
+                        <li>Riprese di Architettura e Paesaggi</li>
+                        <li>Video Aziendali istituzionali</li>
+                        <li>Documentazione di eventi statici</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🚀 Video Adrenalinici & Sportivi (DJI Neo FPV)</h3>
+                    <p>Perfetto per riprese che richiedono velocità, agilità e un punto di vista totalmente immersivo.</p>
+                    <ul style="margin-top: 15px; padding-left: 20px;">
+                        <li>Eventi sportivi (Ciclismo, motori, running)</li>
+                        <li>Riprese "d'azione" all'interno di edifici o capannoni</li>
+                        <li>Inseguimenti dinamici e clip virali per i Social</li>
+                        <li>Video creativi con passaggi ravvicinati</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE PREVENTIVO CON FORM -->
+        <section id="preventivo" style="background-color: #f1f5f9;">
+            <h2 style="text-align: center; margin-bottom: 10px;">Richiedi un Preventivo Gratuito</h2>
+            <p style="text-align: center; margin-bottom: 40px; color: #64748b;">Compila il modulo sottostante: riceverai una risposta direttamente su <strong>drones.company.rega@gmail.com</strong></p>
+            
+            <div class="form-container">
+                <form action="https://formspree.io/f/xrpzknlp" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="nome">Nome e Cognome *</label>
+                        <input type="text" id="nome" name="nome" required placeholder="Es. Mario Rossi">
+                    </div>
+
+                    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 0;">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="tuamail@esempio.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Telefono *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="Il tuo numero di telefono">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="servizio">Tipo di Servizio Richiesto *</label>
+                        <select id="servizio" name="servizio" required>
+                            <option value="" disabled selected>Seleziona un'opzione</option>
+                            <option value="Evento / Matrimonio">Evento / Matrimonio</option>
+                            <option value="Immobiliare">Immobiliare</option>
+                            <option value="Promozione Aziendale">Promozione Aziendale</option>
+                            <option value="Riprese Sportive/Dinamiche">Riprese Sportive / Dinamiche</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="drone">Drone Preferito o Richiesto (Facoltativo)</label>
+                        <select id="drone" name="drone">
+                            <option value="Nessuna preferenza / Consigliatemi voi">Nessuna preferenza / Consigliatemi voi</option>
+                            <option value="DJI Mini 2 (Stabilità e Cinema)">DJI Mini 2 (Stabilità e Cinema - 2 Batterie)</option>
+                            <option value="DJI Neo FPV (Azione e Dinamismo)">DJI Neo FPV (Azione e Dinamismo - 5 Batterie)</option>
+                        </select>
+                    </div>
+
+                    <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 0;">
+                        <div class="form-group">
+                            <label for="data">Data dell'Evento / Progetto *</label>
+                            <input type="date" id="data" name="data" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="luogo">Luogo (Città / Indirizzo) *</label>
+                            <input type="text" id="luogo" name="luogo" required placeholder="Es. Milano (MI)">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="descrizione">Breve Descrizione del Progetto *</label>
+                        <textarea id="descrizione" name="descrizione" required placeholder="Raccontaci la tua idea, cosa vorresti riprendere e quali sono le tue aspettative..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn" style="width: 100%; padding: 15px; font-size: 1.1rem;">Invia Richiesta di Preventivo</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- SECONDA PAGINA: SEZIONE DRONI E PREZZARIO -->
+    <section id="sezione-droni">
+        <h1 style="text-align: center; margin-bottom: 40px;">Tecnologia al Servizio della Tua Visione</h1>
+        
+        <!-- DJI MINI 2 + VIDEO -->
+        <div class="drone-card">
+            <h3>DJI Mini 2: Precisione e Qualità Cinema</h3>
+            <p>Il compagno ideale per chi cerca la perfezione visiva. Grazie alla sua straordinaria stabilità, è lo strumento d'elezione per catturare dettagli nitidi e colori vividi.</p>
+            <ul class="specs">
+                <li><strong>Risoluzione 4K:</strong> Riprese cristalline e professionali.</li>
+                <li><strong>Gimbal a 3 Assi:</strong> Fluidità totale, priva di vibrazioni.</li>
+                <li><strong>Affidabilità Totale:</strong> Kit con 2 batterie per sessioni lunghe.</li>
+            </ul>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/S-aVRo1S87A?si=MRP9yVYyFJsF2aAj" title="Video dimostrativo DJI Mini 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- DJI NEO FPV + VIDEO -->
+        <div class="drone-card">
+            <h3>DJI Neo FPV: Esperienza Immersiva e Dinamismo</h3>
+            <p>Vivi l'azione dall'interno. Il DJI Neo non vola semplicemente sopra l'evento: ci entra dentro. Soluzione perfetta per video adrenalinici.</p>
+            <ul class="specs">
+                <li><strong>Volo FPV (Prima Persona):</strong> Esperienza sensoriale unica.</li>
+                <li><strong>Agilità Estrema:</strong> Perfetto per spazi stretti e inseguimenti.</li>
+                <li><strong>Sessioni Prolungate:</strong> Kit con 5 batterie per non fermarsi mai.</li>
+            </ul>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/X2-qgBe5b-M?si=Dr85QMsYW9Os5VVC" title="Video dimostrativo DJI Neo FPV" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <!-- TABELLA PREZZARIO NELLA SECONDA PAGINA -->
+        <div class="drone-card" style="background-color: #ffffff;">
+            <h2 style="text-align: center; margin-bottom: 25px;">Listino Prezzi e Tariffe</h2>
+            <table style="width: 100%; border-collapse: collapse; text-align: left;">
+                <thead>
+                    <tr style="border-bottom: 2px solid var(--primary);">
+                        <th style="padding: 12px;">Modello Drone</th>
+                        <th style="padding: 12px;">Prezzo Base</th>
+                        <th style="padding: 12px;">Batteria Extra</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #cbd5e1;">
+                        <td style="padding: 12px;"><strong>DJI Mini 2</strong> (Cinema)</td>
+                        <td style="padding: 12px;">Da 65€ in su</td>
+                        <td style="padding: 12px;">+10€ a batteria</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 12px;"><strong>DJI Neo FPV</strong> (Azione)</td>
+                        <td style="padding: 12px;">Da 50€ in su</td>
+                        <td style="padding: 12px;">+10€ a batteria</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 20px; font-size: 0.9rem; color: #64748b; text-align: center;">
+                <em>* Il prezzo aumenta in base al totale delle batterie utilizzate/cambiate durante il servizio.</em>
+            </p>
+        </div>
+
+        <button onclick="nascondiDroni()" class="btn">← Torna alla Home</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Riprese Aeree con Drone. Contattaci direttamente a: <a href="mailto:drones.company.rega@gmail.com" style="color:white; text-decoration: underline;">drones.company.rega@gmail.com</a></p>
+    </footer>
+
+    <script>
+        function mostraDroni() {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('sezione-droni').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+        function nascondiDroni() {
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('sezione-droni').style.display = 'none';
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
